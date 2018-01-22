@@ -1,5 +1,3 @@
-# hello
-Learn test
->This is my edit.
-
-I'm an undergraduate in USC.
+# JavaScript Exercise
+This is my process of learning JavaScript.
+Tutorial video link:https://www.imooc.com/video/6430
