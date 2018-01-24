@@ -10,3 +10,14 @@ for(var i=1;i<4;i++) {
     });
   }) (i);
 }
+
+  var num = add(1, 2);
+  console.log(num);
+  function add(a,b) {
+    a = +a;
+    b = +b;
+    if(isNaN(a)||isNaN(b)) {
+      return ;
+    }
+    return a+b;
+  }
