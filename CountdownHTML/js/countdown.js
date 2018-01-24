@@ -5,7 +5,9 @@ var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-const endTime = new Date(2018,0,24,23,0,0);
+//Set 1 hour to countdown
+var endTime = new Date();
+endTime.setTime(endTime.getTime() + 3600*1000);
 var curShowTimeSeconds = 0;
 
 var balls = [];
