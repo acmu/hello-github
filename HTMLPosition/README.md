@@ -25,6 +25,7 @@ position属性
   border: 2px dashed red;
   width: 360px;
   height: 360px;
+  /*background-size一定要放在background的下面才有用*/
   background: url("login.png") no-repeat;
   background-size: 100% 100%;
   position: fixed;
