@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    #canvas {
+      position: absolute;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" style="border: 2px dashed"></canvas>
+<!--  <h1>Hello world</h1>-->
+  <script>
+    window.onload = function() {
+      var canvas = document.getElementById('canvas')
+      canvas.width = 800
+      canvas.height = 800
+      var ctt = canvas.getContext('2d')
+      
+      fillRoundRect(ctt, 150, 150, 500, 500, 10, '#bbada0')
+      for(let i=0;i<4;i++) {
+        for(let j=0;j<4;j++) {
+          fillRoundRect(ctt, 170+i*120, 170+j*120, 100, 100, 6, '#ccc0b3')
+        }
+      }
+    }
+    
+    function fillRoundRect(ctt, x, y, width, height, radius, fillColor) {
+      if(2*radius>width||2*radius>height) {
+        return 
+      }
+      
+      ctt.save()
+      ctt.translate(x, y)
+      pathRoundRect(ctt, width, height, radius)
+      ctt.fillStyle = fillColor || 'black'
+      ctt.fill()
+      ctt.restore()
+      
+    }
+    
+    function strokeRoundRect(ctt, x, y, width, height, radius, lineWidth, strokeColor) {
+      if(2*radius>width||2*radius>height) {
+        return 
+      }
+      
+      ctt.save()
+      ctt.translate(x, y)
+      pathRoundRect(ctt, width, height, radius)
+      ctt.lineWidth = lineWidth || 1
+      ctt.strokeStyle = strokeColor || 'black'
+      ctt.stroke()
+      ctt.restore()
+      
+    }
+    
+    function pathRoundRect(ctt, width, height, radius) {
+      ctt.beginPath()
+      ctt.arc(width - radius, height - radius, radius, 0, Math.PI/2)
+      ctt.arc(radius, height - radius, radius, Math.PI/2, Math.PI)
+      ctt.arc(radius, radius, radius, Math.PI, Math.PI*1.5)
+      ctt.arc(width - radius, radius, radius, Math.PI*1.5, Math.PI*2)
+      ctt.closePath()
+    }
+
+  </script>
+</body>
+
+</html>
