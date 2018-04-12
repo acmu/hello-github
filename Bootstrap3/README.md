@@ -4,5 +4,5 @@
 
 # 测试的响应式网页
 
-![](https://images2018.cnblogs.com/blog/1356961/201804/1356961-20180412200739249-1422942462.png)
-![](https://images2018.cnblogs.com/blog/1356961/201804/1356961-20180412200741848-245523029.png)
+![](https://github.com/wen98y/hello/blob/master/Bootstrap3/shot_1.png)
+![](https://github.com/wen98y/hello/blob/master/Bootstrap3/shot_2.png)
