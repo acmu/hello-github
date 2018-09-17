@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bubble</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #canvas {
+      position: absolute;
+      background: #222;
+    }
+    
+    h1 {
+      color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+<!--  <h1>h1标题测试</h1>-->
+  <canvas id="canvas"></canvas>
+</body>
+<script>
+  let canvas = document.querySelector('#canvas');
+  var ballList = [];
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  window.onresize = function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+//    console.log(`wi ${window.innerWidth}  hi ${window.innerHeight} `)
+  }
+  let ctt = canvas.getContext('2d');
+  
+  window.onload = function() {
+    requestAnimationFrame(render);
+  }
+  
+  function random(min, max) {
+    return (max-min)*Math.random()+min;
+  }
+  
+  function Ball(x, y) {
+    this.x = x;
+    this.y = y;
+    this.r = random(18, 45);
+    this.a = 1;
+    this.colorList = ['#FF00CC', '#FF3333', '#33FFCC', '#FFCC66', '#FFC0CB', '#33B5E5', '#0099CC', 
+                      '#AA66CC', '#9933CC', '#99CC00', '#669900', '#FFBB33', '#FF8800', '#FF4444', '#CC0000'];
+    this.color = this.colorList[Math.floor(random(0, this.colorList.length - 1))];
+    this.vx = random(-5, 5);
+    this.vy = random(-5, 5);
+    this.va = 0.97;
+    this.vr = -0.6;
+  }
+  Ball.prototype = {
+    draw: function() {
+      ctt.beginPath();
+      ctt.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctt.fillStyle = this.color;
+      ctt.globalAlpha = this.a;
+      ctt.globalCompositeOperation = 'lighter';
+      ctt.fill();
+      this.updata();
+    },
+    updata: function() {
+      this.x+=this.vx;
+      this.y+=this.vy;
+      this.a*=this.va;
+      if(this.r+this.vr>3){
+        this.r+=this.vr;
+      }
+    }
+    
+  }
+  
+  canvas.addEventListener('mousemove', function(e) {
+//    console.log(e.clientX, e.clientY);
+    for(let i=0;i<Math.floor(random(1, 3));i++) {
+      ballList.push(new Ball(e.clientX, e.clientY));
+    }
+  })
+  
+  function render() {
+    ctt.clearRect(0, 0, canvas.width, canvas.height);
+    ballList.forEach(function(item) {
+      item.draw();
+    })
+//    输出是很耗性能的
+    if(ballList.length > 600) {
+      var tem = ballList.length - 100;
+      ballList.splice(0, tem);
+    }
+    if(ballList.length > 600)
+      console.log(ballList.length);
+    requestAnimationFrame(render);
+  }
+
+</script>
+
+</html>
