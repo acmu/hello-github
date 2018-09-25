@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#canvas {
+  background: #222;
+  z-index: -1;
+  position: absolute;
+}
+
+.face_wrap,
+.canvas_wrap {
+  position: relative;
+}
+
+.face {
+  width: 1200px;
+  height: 600px;
+/*  background-color: rgba(114, 58, 170, 0.61);*/
+  position: absolute;
+  left: 50%;
+  margin-left: -600px;
+  margin-top: -300px;
+}
+
+.eye {
+  top: 0;
+  font-family: "Microsoft JhengHei";
+  transition: all .5s;
+  width: 300px;
+  height: 300px;
+  line-height: 0px;
+  text-align: center;
+  font-size: 0px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(250, 251, 252, .9);
+}
+
+.eye:hover {
+  text-decoration: underline;
+  color: bisque;
+  opacity: 1;
+  cursor: pointer;
+  background-color: rgba(235, 31, 188, 0.9);
+  box-shadow: 0 0 29px rgba(252, 241, 249, 0.78);
+  font-size: 40px;
+  line-height: 300px;
+}
+.eyeLeft {
+  left: 150px;
+}
+.eyeRight {
+  right: 150px;
+}
+
+.tooth {
+  width: 336px;
+  height: 120px;
+  bottom: 0;
+/*  background-color: rgba(250, 251, 252, 0.57);*/
+  position: absolute;
+  left: 50%;
+  margin-left: -168px;
+}
+
+.tooth .tooth_item {
+  transition: all .8s;
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  border-radius: 50%;
+  background-color: rgba(109, 195, 221, 0.88);
+  display: inline-block;
+  position: absolute;
+}
+
+.tooth .tooth_i_1 {
+  left: 2px;
+}
+.tooth .tooth_i_2 {
+  left: 85px;
+}
+.tooth .tooth_i_3 {
+  left: 170px;
+}
+.tooth .tooth_i_4 {
+  left: 253px;
+}
+.tooth .tooth_i_1,
+.tooth .tooth_i_2,
+.tooth .tooth_i_3,
+.tooth .tooth_i_4 {
+  
+}
